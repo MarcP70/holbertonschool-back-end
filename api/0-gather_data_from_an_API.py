@@ -3,7 +3,7 @@
 Gathers data from an API based on employee ID
 """
 import requests
-from sys import argv
+import sys
 
 
 def completed_todos_from_employee_id(employee_id):
@@ -41,4 +41,4 @@ def completed_todos_from_employee_id(employee_id):
 
 
 if __name__ == '__main__':
-    completed_todos_from_employee_id(int(argv[1]))
+    completed_todos_from_employee_id(int(sys.argv[1]))
