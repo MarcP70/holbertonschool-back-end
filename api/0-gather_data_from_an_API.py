@@ -19,7 +19,7 @@ def completed_todos_from_employee_id(employee_id):
     user_data = user_response.json()
     todos_data = todos_response.json()
 
-    EMPLOYEE_NAME = user_data.get('name')
+    EMPLOYEE_NAME = user_data['name']
     TOTAL_NUMBER_OF_TASKS = len(todos_data)
     completed_todos = [task for task in todos_data if task.get('completed')]
     NUMBER_OF_DONE_TASKS = len(completed_todos)
