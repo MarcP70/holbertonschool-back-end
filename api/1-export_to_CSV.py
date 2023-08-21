@@ -3,8 +3,8 @@
 Exports tasks data in CSV format based on employee ID
 """
 
-import requests
 import csv
+import requests
 from sys import argv
 
 
@@ -49,7 +49,7 @@ def export_to_csv(user_data, todos_data):
             task_completed = task['completed']
             task_title = task['title']
 
-            writer.writerow([employee_id, user_data['name'],
+            writer.writerow([employee_id, user_data['username'],
                             task_completed, task_title])
 
 
