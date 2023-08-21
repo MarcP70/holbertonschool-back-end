@@ -39,23 +39,24 @@ def export_to_json(users_data, todos_data):
         users_data (list): List of users data.
         todos_data (list): List of todos data.
     """
-    user_tasks = {}
+    user_tasks_dict = {}
 
     for user in users_data:
-        user_id = user["id"]
-        user_name = user["username"]
-        user_tasks[user_id] = {"username": user_name, "tasks": []}
+        employee_id = str(user['id'])
 
-    for task in todos_data:
-        user_id = task["userId"]
-        task_info = {
-            "task": task["title"],
-            "completed": task["completed"]
-        }
-        user_tasks[user_id]["tasks"].append(task_info)
+        user_tasks = []
+        for task in todos_data:
+            if employee_id == str(task['userId']):
+                user_tasks.append({
+                    'username': user['username'],
+                    'task': task['title'],
+                    'completed': task['completed']
+                })
+
+        user_tasks_dict[employee_id] = user_tasks
 
     with open("todo_all_employees.json", "w") as json_file:
-        json.dump(user_tasks, json_file)
+        json.dump(user_tasks_dict, json_file)
 
 
 def main():
