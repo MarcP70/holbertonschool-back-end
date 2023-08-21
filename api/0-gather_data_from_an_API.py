@@ -41,4 +41,4 @@ def completed_todos_from_employee_id(employee_id):
 
 
 if __name__ == '__main__':
-    completed_todos_from_employee_id(argv[1])
+    completed_todos_from_employee_id(int(argv[1]))
